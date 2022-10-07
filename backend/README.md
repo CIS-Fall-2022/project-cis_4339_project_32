@@ -20,5 +20,5 @@ npm start
 ```
 ### Postman Documentation for backend endpoints
 ```
-insert link from postman here
+https://documenter.getpostman.com/view/17820744/2s83zfS5ts
 ```
