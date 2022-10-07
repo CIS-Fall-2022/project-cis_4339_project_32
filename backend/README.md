@@ -18,3 +18,7 @@ MONGO_URL = mongodb+srv://Group32:CIS4339fall@group32project.8triksl.mongodb.net
 ```
 npm start
 ```
+### Postman Documentation for backend endpoints
+```
+insert link from postman here
+```
