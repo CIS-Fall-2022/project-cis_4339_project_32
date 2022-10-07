@@ -96,7 +96,7 @@ router.put("/:id", (req, res, next) => {
 
 //PUT add attendee to event
 router.put("/addAttendee/:id", (req, res, next) => {
-    //only add attendee if not yet signed uo
+    //only add attendee if not yet signed up
     eventdata.find( 
         { _id: req.params.id, attendees: req.body.attendee }, 
         (error, data) => { 
@@ -123,5 +123,49 @@ router.put("/addAttendee/:id", (req, res, next) => {
     );
     
 });
+
+//PUT delete attendee from an event
+router.put("/delAttendee/:id", (req, res, next) => {
+    //only add attendee if not yet signed up
+    eventdata.find( 
+        { _id: req.params.id, attendees: req.body.attendee }, 
+        (error, data) => { 
+            if (error) {
+                return next(error);
+            } else {
+                    eventdata.deleteOne(
+                        { _id: req.params.id }, 
+                        { $push: { attendees: req.body.attendee } },
+                        (error, data) => {
+                            if (error) {
+                                consol
+                                return next(error);
+                            } else {
+                                res.json(data);
+                            }
+                        }
+                    );
+                }
+                
+            }
+        
+    );
+    
+});
+ 
+
+
+// Delete Event based on Event ID
+router.delete('/:id', (req, res, next) => {
+    eventdata.deleteOne({ _id: req.params.id }, (error, data) => {
+      if (error) {
+        return next(error);
+      } else {
+        res.status(200).json({
+          msg: data,
+        });
+      }
+    });
+  });
 
 module.exports = router;
