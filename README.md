@@ -16,6 +16,6 @@ cd frontend
 ```
 Follow instructions in frontend README
 
-## API Documention Link
+## API Documention 
 ```
-https:postman.com
+API documentation can be found in the individual readme folder for back and frontend.
