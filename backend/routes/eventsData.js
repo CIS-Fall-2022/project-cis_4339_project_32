@@ -18,6 +18,7 @@ router.get("/", (req, res, next) => {
 });
 
 //GET single entry by ID
+//change
 router.get("/id/:id", (req, res, next) => { 
     eventdata.find({ _id: req.params.id }, (error, data) => {
         if (error) {
