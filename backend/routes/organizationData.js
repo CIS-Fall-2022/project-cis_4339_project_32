@@ -6,6 +6,7 @@ let { organizationdata } = require("../models/models");
 
 
 // Getting all the organziations
+//change
 router.get('/', (req, res, next) => {
     organizationdata.find((error, data) => {
       if (error) {
