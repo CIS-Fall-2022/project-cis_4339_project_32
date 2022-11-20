@@ -75,11 +75,10 @@ router.get("/client/:id", async (req, res, next) => {
 
 
   /*
-  Aggregation operations process multiple documents and return computed results.
-  You can use aggregation operations to:
+  
     *Group values from multiple documents together.
     *Perform operations on the grouped data to return a single result.
-    *Analyze data changes over time.
+    
   */
   const result = await eventdata.aggregate([
     {
