@@ -72,20 +72,7 @@ router.get("/search/", async (req, res, next) => {
 router.get("/client/:id", async (req, res, next) => {
   const organization = await findOrganizationByName(process.env.organization);
 
-/*router.get("/client/:id", (req, res, next) => { 
-  const organization = findOrganizationByName(process.env.organization);
-  eventdata.find( 
-      { attendees: req.params.id }, 
-      (error, data) => { 
-          if (error) {
-              return next(error);
-          } else {
-              res.json(data);
-          }
-      }
-  );
-});
-*/
+
 
   /*
   Aggregation operations process multiple documents and return computed results.
