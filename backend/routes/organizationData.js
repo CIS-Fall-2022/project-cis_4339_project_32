@@ -6,7 +6,6 @@ let { organizationdata } = require("../models/models");
 
 
 // Getting all the organziations
-//change
 router.get('/', (req, res, next) => {
     organizationdata.find((error, data) => {
       if (error) {
@@ -17,7 +16,7 @@ router.get('/', (req, res, next) => {
     });
   });
 
- 
+ //change times 3
   
   // GET a specific organization based on organizationNameId
   router.get('/:id', (req, res, next) => {
