@@ -12,6 +12,7 @@ Setup a .env file with the following variables, e.g.:
 
 ```
 MONGO_URL = mongodb+srv://Group32:CIS4339fall@group32project.8triksl.mongodb.net/backend
+organization=testOrg
 ```
 
 ### Compiles and hot-reloads for development
