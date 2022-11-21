@@ -58,8 +58,28 @@
 </template>
 
 <script>
+//import axios we gonna use it to send request
+import axios from "axios";
+
 export default {
   name: "App",
+  data() {
+    return {
+      name: "",
+    };
+  },
+  mounted() {
+    this.getOrganizationName();
+  },
+  methods: {
+    getOrganizationName() {
+      let apiURL =
+        import.meta.env.VITE_ROOT_API + `/organizationData/organization`;
+      axios.get(apiURL).then((res) => {
+        this.name = res.data;
+      });
+    },
+  },
 };
 </script>
 
