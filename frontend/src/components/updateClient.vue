@@ -14,7 +14,7 @@ export default {
   data() {
     return {
       //for multi select
-      eventsChosen: [],
+      eventsChosen: null,
       //for multi select event Data
       eventData: [],
       // Client Data
@@ -56,10 +56,10 @@ export default {
         this.client.middleName = data.middleName;
         this.client.lastName = data.lastName;
         this.client.email = data.email;
-        this.client.phoneNumbers[0].primaryPhone =
-          data.phoneNumbers[0].primaryPhone;
-        this.client.phoneNumbers[0].secondaryPhone =
-          data.phoneNumbers[0].secondaryPhone;
+        this.client.phoneNumbers.primaryPhone =
+          data.phoneNumbers.primaryPhone;
+        this.client.phoneNumbers.secondaryPhone =
+          data.phoneNumbers.secondaryPhone;
         this.client.address.line1 = data.address.line1;
         this.client.address.line2 = data.address.line2;
         this.client.address.city = data.address.city;
@@ -92,6 +92,15 @@ export default {
     });
   },
   methods: {
+    deleteClient() {
+      let apiURL =
+        import.meta.env.VITE_ROOT_API +
+        `/primarydata/id/${this.$route.params.id}`;
+      axios.delete(apiURL).then(() => {
+        alert("Client deleted.");
+        this.$router.push({ path: "/findclient" });
+      });
+    },
     formattedDate(datetimeDB) {
       return DateTime.fromISO(datetimeDB).plus({ days: 1 }).toLocaleString();
     },
