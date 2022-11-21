@@ -339,8 +339,26 @@ export default {
               @click="$router.go(-1)"
             >Go back</button>
           </div>
+        <div
+          class="
+              grid grid-cols-1
+              sm:grid-cols-2
+              md:grid-cols-4
+              gap-x-6 gap-y-10
+            "
+        >
+        <div class="flex justify-between mt-10">
+              <button
+                class="bg-red-700 text-white rounded"
+                @click="deleteClient"
+                type="submit"
+              >
+                Delete <!--Add delete button-->
+              </button>
+            </div>
+          </div>
         </div>
-
+      
         <hr class="mt-10 mb-10" />
 
         <!-- Client Event Information -->
