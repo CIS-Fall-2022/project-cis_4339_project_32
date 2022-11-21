@@ -19,6 +19,7 @@ const findOrganizationByName = async (name) => {
 };
 
 //GET all events
+// reference async await: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
 router.get("/", async (req, res, next) => {
   const organization = await findOrganizationByName(process.env.organization);
 
@@ -72,27 +73,13 @@ router.get("/search/", async (req, res, next) => {
 router.get("/client/:id", async (req, res, next) => {
   const organization = await findOrganizationByName(process.env.organization);
 
-/*router.get("/client/:id", (req, res, next) => { 
-  const organization = findOrganizationByName(process.env.organization);
-  eventdata.find( 
-      { attendees: req.params.id }, 
-      (error, data) => { 
-          if (error) {
-              return next(error);
-          } else {
-              res.json(data);
-          }
-      }
-  );
-});
-*/
+
 
   /*
-  Aggregation operations process multiple documents and return computed results.
-  You can use aggregation operations to:
+  
     *Group values from multiple documents together.
     *Perform operations on the grouped data to return a single result.
-    *Analyze data changes over time.
+    
   */
   const result = await eventdata.aggregate([
     {
@@ -223,41 +210,6 @@ router.put("/addAttendee/:id", (req, res, next) => {
   );
 });
 
-/*//PUT add attendee to event
-router.post("/:eventId/delete-attendee/:id", (req, res, next) => {
-    //only add attendee if not yet signed uo
-    eventdata.find(
-        { _id: req.params.id, attendees: req.params.id },
-        (error, data) => {
-            if (error) {
-                return next(error);
-            } else {
-                if (data.length == 0) {
-                    eventdata.updateOne(
-                        { _id: req.params.id },
-                        {
-                            $push: {
-                                attendees: {
-                                    attendee: req.body.attendee,
-                                    registration: new Date(),
-                                },
-                            },
-                        },
-                        (error, data) => {
-                            if (error) {
-                                console.log(error);
-                                return next(error);
-                            } else {
-                                console.log(data);
-                                res.json();
-                            }
-                        }
-                    );
-                }
-            }
-        }
-    );
-});
 
 */
 // Delete Event based on Event ID

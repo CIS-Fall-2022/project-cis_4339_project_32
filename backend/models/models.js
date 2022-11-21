@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 //collection for intakeData
+// reference for utilizing const: https://www.freecodecamp.org/news/var-let-and-const-whats-the-difference/
 const primaryDataSchema = Schema({
     _id: { type: String, default: uuid.v1 },
     firstName: {
@@ -123,6 +124,7 @@ const organizationDataSchema = new Schema({
 });
 
 //Used autopopulate to keep event in organization
+// reference: https://www.npmjs.com/package/mongoose-autopopulate
 primaryDataSchema.plugin(require("mongoose-autopopulate"));
 organizationDataSchema.plugin(require('mongoose-autopopulate'));
 eventDataSchema.plugin(require('mongoose-autopopulate'));
