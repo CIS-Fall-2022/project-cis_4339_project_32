@@ -203,7 +203,27 @@
               @click="$router.go(-1)"
             >Go back</button>
           </div>
+        <div
+          class="
+              grid grid-cols-1
+              sm:grid-cols-2
+              md:grid-cols-4
+              gap-x-6 gap-y-10
+            "
+          >
+            <div class="flex justify-between mt-10 mr-20">
+              <button
+                class="bg-red-700 text-white rounded"
+                @click="deleteEvent"
+                type="submit"
+              > <!-- Add delete button-->
+                Delete
+              </button>
+            </div>
+            <div class="flex justify-between mt-10 mr-20"></div>
+          </div>
         </div>
+        
 
         <hr class="mt-10 mb-10" />
 
@@ -307,6 +327,15 @@ export default {
       });
   },
   methods: {
+    //trigger delete event services
+    deleteEvent() {
+      let apiURL =
+        import.meta.env.VITE_ROOT_API + `/eventdata/${this.$route.params.id}`;
+      axios.delete(apiURL).then(() => {
+        alert("Event deleted.");
+        this.$router.push({ path: "/findEvents" });
+      });
+    },
     formattedDate(datetimeDB) {
       return DateTime.fromISO(datetimeDB).plus({ days: 1 }).toLocaleString();
     },
