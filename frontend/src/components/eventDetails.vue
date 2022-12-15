@@ -1,20 +1,47 @@
+<!-- rearranged code for readability -->
 <template>
   <main>
     <div>
-      <h1 class="font-bold text-4xl text-red-700 tracking-widest text-center mt-10">Update Event</h1>
+      <h1
+        class="
+          font-bold
+          text-4xl text-red-700
+          tracking-widest
+          text-center
+          mt-10
+        "
+      >
+        Update Event
+      </h1>
     </div>
     <div class="px-10 py-20">
       <form @submit.prevent="handleSubmitForm">
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
+        <div
+          class="
+            grid grid-cols-1
+            sm:grid-cols-2
+            md:grid-cols-4
+            gap-x-6 gap-y-10
+          "
+        >
           <h2 class="text-2xl font-bold">Event Details</h2>
           <!-- form field -->
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">Event Name</span>
-              <span style="color:#ff0000">*</span>
+              <span style="color: #ff0000">*</span>
               <input
                 type="text"
-                class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                class="
+                  w-full
+                  rounded-md
+                  border-gray-300
+                  shadow-sm
+                  focus:border-indigo-300
+                  focus:ring
+                  focus:ring-indigo-200
+                  focus:ring-opacity-50
+                "
                 v-model="event.eventName"
               />
               <span class="text-black" v-if="v$.event.eventName.$error">
@@ -22,7 +49,9 @@
                   class="text-red-700"
                   v-for="error of v$.event.eventName.$errors"
                   :key="error.$uid"
-                >{{ error.$message }}!</p>
+                >
+                  {{ error.$message }}!
+                </p>
               </span>
             </label>
           </div>
@@ -31,9 +60,18 @@
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">Date</span>
-              <span style="color:#ff0000">*</span>
+              <span style="color: #ff0000">*</span>
               <input
-                class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                class="
+                  w-full
+                  rounded-md
+                  border-gray-300
+                  shadow-sm
+                  focus:border-indigo-300
+                  focus:ring
+                  focus:ring-indigo-200
+                  focus:ring-opacity-50
+                "
                 v-model="event.date"
                 type="date"
               />
@@ -42,7 +80,9 @@
                   class="text-red-700"
                   v-for="error of v$.event.date.$errors"
                   :key="error.$uid"
-                >{{ error.$message }}!</p>
+                >
+                  {{ error.$message }}!
+                </p>
               </span>
             </label>
           </div>
@@ -54,8 +94,20 @@
             <label class="block">
               <span class="text-gray-700">Description</span>
               <textarea
-                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                class="
+                  mt-1
+                  block
+                  w-full
+                  rounded-md
+                  border-gray-300
+                  shadow-sm
+                  focus:border-indigo-300
+                  focus:ring
+                  focus:ring-indigo-200
+                  focus:ring-opacity-50
+                "
                 rows="2"
+                v-model="event.description"
               ></textarea>
             </label>
           </div>
@@ -73,7 +125,17 @@
                   id="familySupport"
                   value="Family Support"
                   v-model="checkedServices"
-                  class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
+                  class="
+                    rounded
+                    border-gray-300
+                    text-indigo-600
+                    shadow-sm
+                    focus:border-indigo-300
+                    focus:ring
+                    focus:ring-offset-0
+                    focus:ring-indigo-200
+                    focus:ring-opacity-50
+                  "
                   notchecked
                 />
                 <span class="ml-2">Family Support</span>
@@ -86,7 +148,17 @@
                   id="adultEducation"
                   value="Adult Education"
                   v-model="checkedServices"
-                  class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
+                  class="
+                    rounded
+                    border-gray-300
+                    text-indigo-600
+                    shadow-sm
+                    focus:border-indigo-300
+                    focus:ring
+                    focus:ring-offset-0
+                    focus:ring-indigo-200
+                    focus:ring-opacity-50
+                  "
                   notchecked
                 />
                 <span class="ml-2">Adult Education</span>
@@ -99,7 +171,17 @@
                   id="youthServices"
                   value="Youth Services Program"
                   v-model="checkedServices"
-                  class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
+                  class="
+                    rounded
+                    border-gray-300
+                    text-indigo-600
+                    shadow-sm
+                    focus:border-indigo-300
+                    focus:ring
+                    focus:ring-offset-0
+                    focus:ring-indigo-200
+                    focus:ring-opacity-50
+                  "
                   notchecked
                 />
                 <span class="ml-2">Youth Services Program</span>
@@ -112,7 +194,17 @@
                   id="childhoodEducation"
                   value="Early Childhood Education"
                   v-model="checkedServices"
-                  class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
+                  class="
+                    rounded
+                    border-gray-300
+                    text-indigo-600
+                    shadow-sm
+                    focus:border-indigo-300
+                    focus:ring
+                    focus:ring-offset-0
+                    focus:ring-indigo-200
+                    focus:ring-opacity-50
+                  "
                   notchecked
                 />
                 <span class="ml-2">Early Childhood Education</span>
@@ -122,7 +214,15 @@
         </div>
 
         <!-- grid container -->
-        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
+        <div
+          class="
+            mt-10
+            grid grid-cols-1
+            sm:grid-cols-2
+            md:grid-cols-4
+            gap-x-6 gap-y-10
+          "
+        >
           <h2 class="text-2xl font-bold">Address</h2>
           <!-- form field -->
           <div class="flex flex-col">
@@ -130,7 +230,16 @@
               <span class="text-gray-700">Address Line 1</span>
               <input
                 type="text"
-                class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                class="
+                  w-full
+                  rounded-md
+                  border-gray-300
+                  shadow-sm
+                  focus:border-indigo-300
+                  focus:ring
+                  focus:ring-indigo-200
+                  focus:ring-opacity-50
+                "
                 placeholder
                 v-model="event.address.line1"
               />
@@ -142,7 +251,16 @@
               <span class="text-gray-700">Address Line 2</span>
               <input
                 type="text"
-                class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                class="
+                  w-full
+                  rounded-md
+                  border-gray-300
+                  shadow-sm
+                  focus:border-indigo-300
+                  focus:ring
+                  focus:ring-indigo-200
+                  focus:ring-opacity-50
+                "
                 placeholder
                 v-model="event.address.line2"
               />
@@ -154,7 +272,16 @@
               <span class="text-gray-700">City</span>
               <input
                 type="text"
-                class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                class="
+                  w-full
+                  rounded-md
+                  border-gray-300
+                  shadow-sm
+                  focus:border-indigo-300
+                  focus:ring
+                  focus:ring-indigo-200
+                  focus:ring-opacity-50
+                "
                 placeholder
                 v-model="event.address.city"
               />
@@ -167,7 +294,16 @@
               <span class="text-gray-700">County</span>
               <input
                 type="text"
-                class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                class="
+                  w-full
+                  rounded-md
+                  border-gray-300
+                  shadow-sm
+                  focus:border-indigo-300
+                  focus:ring
+                  focus:ring-indigo-200
+                  focus:ring-opacity-50
+                "
                 placeholder
                 v-model="event.address.county"
               />
@@ -179,7 +315,16 @@
               <span class="text-gray-700">Zip Code</span>
               <input
                 type="text"
-                class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                class="
+                  w-full
+                  rounded-md
+                  border-gray-300
+                  shadow-sm
+                  focus:border-indigo-300
+                  focus:ring
+                  focus:ring-indigo-200
+                  focus:ring-opacity-50
+                "
                 placeholder
                 v-model="event.address.zip"
               />
@@ -188,23 +333,34 @@
         </div>
 
         <!-- grid container -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
+        <div
+          class="
+            grid grid-cols-1
+            sm:grid-cols-2
+            md:grid-cols-4
+            gap-x-6 gap-y-10
+          "
+        >
           <div class="flex justify-between mt-10 mr-20">
             <button
               @click="handleEventUpdate"
               type="submit"
               class="bg-red-700 text-white rounded"
-            >Update Event</button>
+            >
+              Update Event
+            </button>
           </div>
           <div class="flex justify-between mt-10 mr-20">
             <button
               type="reset"
               class="border border-red-700 bg-white text-red-700 rounded"
               @click="$router.go(-1)"
-            >Go back</button>
+            >
+              Go back
+            </button>
           </div>
-        <div
-          class="
+          <div
+            class="
               grid grid-cols-1
               sm:grid-cols-2
               md:grid-cols-4
@@ -223,12 +379,18 @@
             <div class="flex justify-between mt-10 mr-20"></div>
           </div>
         </div>
-        
 
         <hr class="mt-10 mb-10" />
 
         <!-- grid container -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
+        <div
+          class="
+            grid grid-cols-1
+            sm:grid-cols-2
+            md:grid-cols-4
+            gap-x-6 gap-y-10
+          "
+        >
           <div>
             <h2 class="text-2xl font-bold">List of Attendees</h2>
             <h3 class="italic">Click table row to edit/display an entry</h3>
@@ -248,11 +410,15 @@
                   v-for="client in attendeeData"
                   :key="client._id"
                 >
-                  <td
-                    class="p-2 text-left"
-                  >{{ client.attendeeFirstName + " " + client.attendeeLastName }}</td>
+                  <td class="p-2 text-left">
+                    {{
+                      client.attendeeFirstName + " " + client.attendeeLastName
+                    }}
+                  </td>
                   <td class="p-2 text-left">{{ client.attendeeCity }}</td>
-                  <td class="p-2 text-left">{{ client.attendeePhoneNumber }}</td>
+                  <td class="p-2 text-left">
+                    {{ client.attendeePhoneNumber }}
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -301,12 +467,14 @@ export default {
       .then((resp) => {
         let data = resp.data[0];
         this.event.eventName = data.eventName;
-        console.log(data.date);
-        this.event.date = DateTime.fromISO(data.date).plus({ days: 1 }).toISODate();
+        this.event.date = DateTime.fromISO(data.date)
+          .plus({ days: 1 })
+          .toISODate();
         this.event.description = data.description;
         this.checkedServices = data.services;
         this.event.address = data.address;
-        this.attendeeIDs = data.attendees;
+        this.attendeeIDs = data.attendees.map((x) => x.attendee);
+
         for (let i = 0; i < this.attendeeIDs.length; i++) {
           axios
             .get(
@@ -320,7 +488,7 @@ export default {
                 attendeeFirstName: data.firstName,
                 attendeeLastName: data.lastName,
                 attendeeCity: data.address.city,
-                attendeePhoneNumber: data.phoneNumbers[0].primaryPhone,
+                attendeePhoneNumber: data.phoneNumbers.primaryPhone,
               });
             });
         }
