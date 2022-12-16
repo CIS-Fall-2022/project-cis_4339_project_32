@@ -7,11 +7,14 @@ This implementation is for NodeJS based on [Express](https://expressjs.com/) and
 npm install --save
 ```
 
-### Before startup 
+### Before startup
+```
 Setup a .env file with the following variables:
 MONGO_URL = mongodb+srv://Group32:CIS4339fall@group32project.8triksl.mongodb.net/backend
 organization = Organization1
 PORT = 3000
+```
+### How to change to a different organization
 ```
 Change organization variable to the following options to view different data:
 organization = Organization1
